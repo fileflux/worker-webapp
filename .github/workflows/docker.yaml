@@ -32,12 +32,12 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/s3manager:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/s3worker:latest
 
       - name: Scan Docker Image with Trivy
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: ${{ secrets.DOCKERHUB_USERNAME }}/s3manager:latest
+          image-ref: ${{ secrets.DOCKERHUB_USERNAME }}/s3worker:latest
           severity: HIGH,CRITICAL
           exit-code: 1  
           ignore-unfixed: true  
